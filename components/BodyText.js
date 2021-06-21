@@ -2,11 +2,13 @@ import React from "react";
 import { StyleSheet, Text } from "react-native";
 
 const BodyText = (props) => {
-  return <Text style={styles.headerTitle}>{props.children}</Text>;
+  return (
+    <Text style={{ ...styles.bodyText, ...props.style }}>{props.children}</Text>
+  );
 };
 
 const styles = StyleSheet.create({
-  headerTitle: {
+  bodyText: {
     fontFamily: "open-sans",
   },
 });
