@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Button, Image, Text } from "react-native";
+import { StyleSheet, View, Dimensions, Image, Text } from "react-native";
 import TitleText from "../components/TitleText";
 import BodyText from "../components/BodyText";
 import Colors from "../constants/colors";
@@ -41,8 +41,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     marginTop: 20,
-    width: 300,
-    maxWidth: "80%",
+    width: Dimensions.get('window').width - (Dimensions.get('window').width * 0.3),
+    maxWidth: '80%',
+    minWidth: 300,
   },
   imageContainer: {
     width: 300,

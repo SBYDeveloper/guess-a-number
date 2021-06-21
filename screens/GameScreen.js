@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { StyleSheet, View, Alert, ScrollView, Text } from "react-native";
+import { StyleSheet, View, Alert, ScrollView, Dimensions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import NumberContainer from "../components/NumberContainer";
 import Card from "../components/Card";
@@ -80,8 +80,8 @@ const GameScreen = (props) => {
           <Ionicons name="md-add" size={24} color="white" />
         </MainButton>
       </Card>
-      <View style={styles.list}>
-        <ScrollView>
+      <View style={styles.listContainer}>
+        <ScrollView contentContainerStyle={styles.list}>
           {pastGuesses.map((guess, index) =>
             renderListItem(guess, pastGuesses.length - index)
           )}
@@ -100,23 +100,31 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: 20,
-    width: 300,
+    marginTop: Dimensions.get("window").height > 700 ? 20 : 10,
+    width: Dimensions.get("window").width > 400 ? "80%" : "60%",
     maxWidth: "80%",
+    minWidth: 300,
+  },
+  listContainer: {
+    flex: 1,
+    width: Dimensions.get("window").width > 400 ? "60%" : "80%",
+    marginTop: Dimensions.get("window").height > 700 ? 10 : 5,
   },
   list: {
-    flex: 1,
-    width: 300,
-    maxWidth: '80%'
+    flexGrow: 1,
+    justifyContent: "flex-end",
+    alignItems: "center",
   },
   listItem: {
     flexDirection: "row",
     borderWidth: 1,
     borderColor: Colors.grey,
+    borderRadius: 6,
     padding: 15,
     marginVertical: 10,
     backgroundColor: Colors.white,
-    justifyContent: 'space-between'
+    justifyContent: "space-between",
+    width: Dimensions.get("window").width > 400 ? "100%" : "80%",
   },
 });
 
