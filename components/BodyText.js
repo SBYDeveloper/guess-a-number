@@ -3,12 +3,12 @@ import { StyleSheet, Text } from "react-native";
 
 const BodyText = (props) => {
   return (
-    <Text style={{ ...styles.bodyText, ...props.style }}>{props.children}</Text>
+    <Text style={{ ...styles.body, ...props.style }}>{props.children}</Text>
   );
 };
 
 const styles = StyleSheet.create({
-  bodyText: {
+  body: {
     fontFamily: "open-sans",
   },
 });

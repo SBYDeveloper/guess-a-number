@@ -3,15 +3,14 @@ import { StyleSheet, Text } from "react-native";
 
 const TitleText = (props) => {
   return (
-    <Text style={{ ...styles.headerTitle, ...props.style }}>
-      {props.children}
-    </Text>
+    <Text style={{ ...styles.title, ...props.style }}>{props.children}</Text>
   );
 };
 
 const styles = StyleSheet.create({
-  headerTitle: {
+  title: {
     fontFamily: "open-sans-bold",
+    fontSize: 18,
   },
 });
 
